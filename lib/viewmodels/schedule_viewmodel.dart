@@ -11,6 +11,7 @@ class ScheduleViewModel extends ChangeNotifier{
   
   int get selectedTabIndex => _selectedTabIndex;
 
+  //Notifies UI when tab selection changes
   void changeTab(int index) {
     _selectedTabIndex = index;
     notifyListeners();

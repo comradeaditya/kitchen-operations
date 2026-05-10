@@ -6,6 +6,8 @@ class ShelfItemModel {
   final String storageLocation;
   final String totalQuantity;
   final int daysLeft;
+  //daysLeft stored as int (not String) to enable
+  //color comparision - red if <=3 days remaining 
   final String availableQuantity;
 
   ShelfItemModel({

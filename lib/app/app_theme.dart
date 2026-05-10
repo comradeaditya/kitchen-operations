@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Centralized color palette for the entire app
 class AppColors {
   static const Color primary = Color(0xFF1C1C2E);
   static const Color background = Color(0xFFF4F4F6);
@@ -11,6 +12,7 @@ class AppColors {
   static const Color shiftGreen = Color(0xFFE8F5E9);
 }
 
+//Reusable text styles based on Figma design
 class AppTextStyles{
   static const TextStyle heading = TextStyle(
     fontSize: 20,
