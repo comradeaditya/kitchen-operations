@@ -4,6 +4,7 @@ import 'package:kitchen_operations/app/app_theme.dart';
 import 'package:kitchen_operations/viewmodels/schedule_viewmodel.dart';
 import 'package:kitchen_operations/views/widgets/bottom_nav_bar.dart';
 import 'package:kitchen_operations/views/widgets/shift_card.dart';
+import 'package:kitchen_operations/views/screens/live_orders_screen.dart';
 
 class ScheduleScreen extends StatefulWidget{
   const ScheduleScreen({super.key});
@@ -66,7 +67,19 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         itemBuilder: (context, index) {
           final isSelected = viewModel.selectedTabIndex == index;
           return GestureDetector(
-            onTap: () => viewModel.changeTab(index),
+            onTap: () {
+              if(index == 1) {
+                //navigate to Live Order Screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LiveOrdersScreen(),
+                  ),
+                );
+              } else {
+                viewModel.changeTab(index);
+              }
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
               padding: const EdgeInsets.symmetric(horizontal: 14),

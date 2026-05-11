@@ -10,6 +10,7 @@ class AppColors {
   static const Color textSecondary = Color(0xFF6B7280);
   static const Color warning = Color(0xFFFF4444);
   static const Color shiftGreen = Color(0xFFE8F5E9);
+  static const Color successGreen = Color(0xFF2D9B5A);
 }
 
 //Reusable text styles based on Figma design
