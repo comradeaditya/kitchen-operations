@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:kitchen_operations/app/app_theme.dart';
 import 'package:kitchen_operations/viewmodels/schedule_viewmodel.dart';
 import 'package:kitchen_operations/views/widgets/bottom_nav_bar.dart';
+import 'package:kitchen_operations/views/widgets/shift_card.dart';
 
 class ScheduleScreen extends StatefulWidget{
   const ScheduleScreen({super.key});
@@ -97,8 +98,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     
     //for now only schedule tab show content
     if(viewModel.selectedTabIndex == 0) {
-      return const Center(
-        child: Text('Schedule Content Here'),
+      return ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        itemCount: viewModel.shifts.length,
+        itemBuilder: (context, index) {
+          return ShiftCard(shift: viewModel.shifts[index]);
+        },
       );
     }
     return const Center(
