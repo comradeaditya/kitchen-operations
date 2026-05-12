@@ -29,10 +29,10 @@ Followed **MVVM (Model-View-ViewModel)** pattern throughout:
 ## Reusable widgets built
 
 - **AppDrawer** - slide-out sidebar with user profile, screen navigation, and logout. Active screen highlighted dynamically based on which screen you're on.
-- **BottomNavBar** - shared bottom navigation across all screens with 4 items
-- **ShiftCard** - meal shift card with times, optional event name, and employee list
-- **EmployeeRow** - single employee entry showing hours, name, and role in a green-tinted row
-- **OrderCard** - full order card with header info, item rows, assign/cancel actions, and cancel all button
+- **BottomNavBar** - shared bottom navigation across all screens with 4 items.
+- **ShiftCard** - meal shift card with times, optional event name, and employee list.
+- **EmployeeRow** - single employee entry showing hours, name, and role in a green-tinted row.
+- **OrderCard** - full order card with header info, item rows, assign/cancel actions, and cancel all button.
 
 ---
 
@@ -60,4 +60,4 @@ Followed **MVVM (Model-View-ViewModel)** pattern throughout:
 - Portrait mode only, optimized for mobile
 - No API calls, all data is hardcoded in `mock_data.dart`
 - Figma design used as reference throughout
-- Days left color coding — red if 3 or fewer days remaining, handled via integer comparison not string
+- Days left color coding - red if 3 or fewer days remaining, handled via integer comparison not string
