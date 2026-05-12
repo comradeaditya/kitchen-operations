@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kitchen_operations/app/app_theme.dart';
+import 'package:kitchen_operations/views/screens/live_orders_screen.dart';
+import 'package:kitchen_operations/views/screens/shelf_life_screen.dart';
 
 class AppDrawer  extends StatelessWidget {
-  const AppDrawer({super.key});
+  final String activeScreen;
+
+  const AppDrawer({
+    super.key,
+    required this.activeScreen,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,37 +26,63 @@ class AppDrawer  extends StatelessWidget {
             context,
             icon: Icons.dashboard_outlined,
             title: 'Dashboard',
+            isActive: activeScreen == 'Dashboard',
             onTap: () => Navigator.pop(context),
           ),
           _buildMenuItem(
             context,
             icon: Icons.calendar_today_outlined,
             title: 'Schedule',
-            isActive: true,
-            onTap: () => Navigator.pop(context),
+            isActive: activeScreen == 'Schedule',
+            onTap: () {
+              Navigator.pop(context); // close drawer
+              if(activeScreen != 'Schedule') {
+                Navigator.popUntil(context, (route) => route.isFirst);
+              }
+            },
           ),
           _buildMenuItem(
             context,
             icon: Icons.receipt_outlined,
             title: 'Live Orders',
-            onTap: () => Navigator.pop(context),
+            isActive: activeScreen == 'Live Orders',
+            onTap: () {
+              Navigator.pop(context); // close drawer
+              if(activeScreen != 'Live Orders') {
+                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const LiveOrdersScreen()),
+                );
+              }
+            },
           ),
           _buildMenuItem(
             context,
             icon: Icons.kitchen_outlined,
             title: 'Shelf Life Items',
-            onTap: () => Navigator.pop(context),
+            isActive: activeScreen == 'Shelf Life Items',
+            onTap: () {
+              Navigator.pop(context); // close drawer
+              if(activeScreen != 'Shelf Life Items') {
+                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ShelfLifeScreen()),
+                );
+              }
+            },
           ),
           _buildMenuItem(
             context,
             icon: Icons.food_bank_outlined,
             title: 'Preprepared Items',
+            isActive: activeScreen == 'Preprepared Items',
             onTap: () => Navigator.pop(context),
           ),
           _buildMenuItem(
             context,
             icon: Icons.inventory_outlined,
             title: 'Current Stock',
+            isActive: activeScreen == 'Current Stock',
             onTap: () => Navigator.pop(context),
           ),
           const Spacer(),

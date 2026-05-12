@@ -24,7 +24,7 @@ class _ShelfLifeScreenState extends State<ShelfLifeScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      drawer: const AppDrawer(),
+      drawer: const AppDrawer(activeScreen: 'Shelf Life Items',),
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,

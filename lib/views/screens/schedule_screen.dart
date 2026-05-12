@@ -26,7 +26,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      drawer: const AppDrawer(),
+      drawer: const AppDrawer(activeScreen: 'Schedule'),
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,

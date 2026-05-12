@@ -28,7 +28,7 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      drawer: const AppDrawer(),
+      drawer: const AppDrawer(activeScreen: 'Live Orders'),
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,
