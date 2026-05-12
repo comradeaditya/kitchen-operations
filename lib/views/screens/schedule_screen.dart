@@ -28,10 +28,24 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,
+        automaticallyImplyLeading: false, //removes back arrow
         title: const Text(
           'Kitchen Operations',
           style: AppTextStyles.heading,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Row(
+              children: [
+                const Icon(Icons.calendar_today_outlined,
+                  size: 16, color: AppColors.textSecondary),
+                const SizedBox(width: 4),
+                Text('22-02-2023', style: AppTextStyles.caption),
+              ],
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [

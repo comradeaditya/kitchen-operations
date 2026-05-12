@@ -67,7 +67,7 @@ class _ShelfLifeScreenState extends State<ShelfLifeScreen> {
   Widget _buildTabBar(ScheduleViewModel viewModel, BuildContext context) {
     final tabs = [
       'Schedule', 'Live Orders', 'Shelf Life Items',
-      'Preprepared Items', 'LeftOver', 'Purchase Confirmation', 'Current Stock'
+      'Preprepared Items', 'Leftover', 'Purchase Confirmation', 'Current Stock'
     ];
 
     return Container(
@@ -215,7 +215,12 @@ class _ShelfLifeScreenState extends State<ShelfLifeScreen> {
   Widget _buildRowCell(String value, {required int flex}) {
     return Expanded(
       flex: flex,
-      child: Text(value, style: AppTextStyles.body),
+      child: Text(
+        value, 
+        style: AppTextStyles.body,
+        overflow: TextOverflow.ellipsis, //cuts long text with ...
+        maxLines: 1,
+      ),
     );
   }
 

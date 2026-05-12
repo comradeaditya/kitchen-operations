@@ -6,7 +6,7 @@ import 'package:kitchen_operations/models/shelf_item_model.dart';
 class MockData {
   static List<EmployeeModel> employees = [
     EmployeeModel(
-      name: 'Rajiv Singh', 
+      name: 'Rajeev Singh', 
       role: 'Head Chef', 
       hoursPerShift: '3:45/8hour'
       ),
@@ -39,7 +39,7 @@ class MockData {
       serveTime: '8:30 AM - 11:00 AM',
       eventName: null,
       employees: [
-        EmployeeModel(name: 'Rajiv Singh', role: 'Head Chef', hoursPerShift: '3:45/8hour'),
+        EmployeeModel(name: 'Rajeev Singh', role: 'Head Chef', hoursPerShift: '3:45/8hour'),
         EmployeeModel(name: 'Rahul K.', role: 'Chef', hoursPerShift: '3:45/8hour'),
         EmployeeModel(name: 'Salman', role: 'Assistant Chef', hoursPerShift: '3:45/8hour'),
       ],
