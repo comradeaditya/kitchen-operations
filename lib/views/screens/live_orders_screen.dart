@@ -6,6 +6,7 @@ import 'package:kitchen_operations/viewmodels/orders_viewmodel.dart';
 import 'package:kitchen_operations/viewmodels/schedule_viewmodel.dart';
 import 'package:kitchen_operations/views/widgets/bottom_nav_bar.dart';
 import 'package:kitchen_operations/views/widgets/order_card.dart';
+import 'package:kitchen_operations/views/widgets/app_drawer.dart';
 
 class LiveOrdersScreen extends StatefulWidget {
   const LiveOrdersScreen({super.key});
@@ -27,9 +28,16 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      drawer: const AppDrawer(),
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: AppColors.textPrimary),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         title: const Text(
           'Kitchen Operations',
           style: AppTextStyles.heading,

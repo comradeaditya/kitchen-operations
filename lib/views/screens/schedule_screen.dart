@@ -7,6 +7,7 @@ import 'package:kitchen_operations/views/widgets/bottom_nav_bar.dart';
 import 'package:kitchen_operations/views/widgets/shift_card.dart';
 import 'package:kitchen_operations/views/screens/live_orders_screen.dart';
 import 'package:kitchen_operations/views/screens/shelf_life_screen.dart';
+import 'package:kitchen_operations/views/widgets/app_drawer.dart';
 
 class ScheduleScreen extends StatefulWidget{
   const ScheduleScreen({super.key});
@@ -25,9 +26,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      drawer: const AppDrawer(),
       appBar: AppBar(
         backgroundColor: AppColors.surface,
         elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: AppColors.textPrimary),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         automaticallyImplyLeading: false, //removes back arrow
         title: const Text(
           'Kitchen Operations',
