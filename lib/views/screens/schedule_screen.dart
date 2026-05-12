@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kitchen_operations/views/screens/shelf_life_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kitchen_operations/app/app_theme.dart';
 import 'package:kitchen_operations/viewmodels/schedule_viewmodel.dart';
 import 'package:kitchen_operations/views/widgets/bottom_nav_bar.dart';
 import 'package:kitchen_operations/views/widgets/shift_card.dart';
 import 'package:kitchen_operations/views/screens/live_orders_screen.dart';
+import 'package:kitchen_operations/views/screens/shelf_life_screen.dart';
 
 class ScheduleScreen extends StatefulWidget{
   const ScheduleScreen({super.key});
@@ -42,6 +44,23 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       bottomNavigationBar: BottomNavBar(
         currentIndex: _currentNavIndex, 
         onTap: (index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LiveOrdersScreen(),
+              ),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ShelfLifeScreen(),
+              ),
+            );
+          } else {
+            viewModel.changeTab(index);
+          }
           setState(() {
           _currentNavIndex = index;
           });
@@ -75,6 +94,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   MaterialPageRoute(
                     builder: (context) => const LiveOrdersScreen(),
                   ),
+                );
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ShelfLifeScreen()),
                 );
               } else {
                 viewModel.changeTab(index);

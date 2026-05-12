@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitchen_operations/views/screens/shelf_life_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kitchen_operations/app/app_theme.dart';
 import 'package:kitchen_operations/viewmodels/orders_viewmodel.dart';
@@ -52,7 +53,7 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
     ),
     body: Column(
       children: [
-        _buildTabBar(scheduleViewModel),
+        _buildTabBar(scheduleViewModel, context),
         _buildSubTabs(),
         Expanded(
           child: _buildBody(ordersViewModel),
@@ -62,6 +63,14 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
     bottomNavigationBar: BottomNavBar(
       currentIndex: _currentNavIndex,
       onTap: (index) {
+        if (index == 2) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ShelfLifeScreen(),
+            ),
+          );
+        }
         setState(() {
           _currentNavIndex = index;
         });
@@ -70,7 +79,7 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
   );
   }
 
-  Widget _buildTabBar(ScheduleViewModel viewModel) {
+  Widget _buildTabBar(ScheduleViewModel viewModel, BuildContext context) {
     final tabs = [
       'Schedule', 'Live Orders', 'Shelf Life Items',
       'Preprepared Items', 'Leftover',
@@ -88,7 +97,20 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
           //Live Orders is index 1
           final isSelected = index == 1;
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              if (index == 0) {
+                //go back to Schedule screen
+                Navigator.pop(context);
+              } else if (index == 2) {
+                //go to Shelf Life screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShelfLifeScreen(),
+                  ),
+                );
+              }
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
               padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -125,7 +147,7 @@ class _LiveOrdersScreenState extends State<LiveOrdersScreen> {
         children: [
           _buildSubTab('Running Orders', 0),
           const SizedBox(width: 24),
-          _buildSubTab('Custom Menu (Ala Carte Menu)', 1),
+          _buildSubTab('Ala Carte Menu', 1),
         ],
       ),
     );
