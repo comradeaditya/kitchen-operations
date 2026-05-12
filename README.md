@@ -36,15 +36,12 @@ Followed **MVVM (Model-View-ViewModel)** pattern throughout:
 
 ---
 
-## Screenshots
-
-![Schedule](screenshots/schedule_screen.jpeg)
-
-![Live Orders](screenshots/live_orders_screen.jpeg) 
+### Screenshots
  
-![Shelf Life](screenshots/shelf_life_screen.jpeg)  
- 
-![Drawer](screenshots/drawer.jpeg) 
+## Schedule + Live Orders + Shelf Life + Drawer
+
+![Schedule + Live Orders + Shelf Life + Drawer](screenshots/all_screen.jpeg)
+
 
 ---
 
